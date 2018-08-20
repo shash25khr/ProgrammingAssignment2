@@ -22,13 +22,13 @@ list(set = set, get = get, setinverse = setinverse, getinverse = getinverse) ## 
 
 cacheSolve <- function(x, ...) {
   inver<-x$getinverse() ## Return a matrix that is the inverse of 'x'
-  if(!is.null(inver))
+  if(!is.null(inver)) #if inver matrix is not NULL
   {
-    message("getting data")
-    return(inver)
+    message("getting data") #Type message: Getting data
+    return(inver)  #return the invertible matrix
   }
-  data<-x$get()
-  inver<-solve(data,...)
+  data<-x$get() #get the original  Data 
+  inver<-solve(data,...)  #use solve function to inverse the matrix
   x$setinverse(inver)
   inver
 }
